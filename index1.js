@@ -318,33 +318,33 @@ for (var fruitsz of myFruits){
 }
 
 
+// get value when we click the button
+function getvalue() {
+  let gets = "srinivas c r"
+  document.getElementById("getvalue").value = gets
+}
 
 
-  let filArr = arr2.filter((va) => {
-    if (arr2.indexOf(va) == va) {
-      console.log(va);
+// const arr3 = [1, 2, 2, 3, 3, 3, 3, 4, 4]
+//   let filArr = arr2.filter((va) => {
+//     if (arr2.indexOf(va) == va) {
+//       console.log(va); 
+//     }
+//   }) 
+  // const convObj = [1, 2, 2, 3, 3, 3, 3, 4, 4]
+  // let reobj = Object.assign({}, convObj)// Array is convert to object
+  // console.log(reobj);
+  // let jobj = JSON.stringify(reobj)
+  // console.log(jobj)
 
+  const arr3 = [1, 2, 2, 3, 3, 3, 3, 4, 4] 
+  let myObject=new Object();
+  for (i=0;i<arr3.length;i++){
+    if(arr3[i] !==arr3[i-1]){
+      let values=arr3.filter((val,ind,arr)=> val ==arr3[i]).length;
+      myObject[arr3[i]]=values;
     }
-  })
-
-
-  // 
-  const arr3 = [1, 2, 2, 3, 3, 3, 3, 4, 4]
-  arr3.stri
-
-  for (let r of arr3) {
-    let fu = `${r},${arr2[r]}`
   }
-
-  // get value when we click the button
-  function getvalue() {
-    let gets = "srinivas c r"
-    document.getElementById("getvalue").value = gets
-  }
-
-  const convObj = [1, 2, 2, 3, 3, 3, 3, 4, 4]
-  let reobj = Object.assign({}, convObj)// Array is convert to object
-  console.log(reobj);
-  let jobj = JSON.stringify(reobj)
-  console.log(jobj)
-
+  console.log( myObject);
+  let tojson=JSON.stringify(myObject)
+  console.log( tojson);
