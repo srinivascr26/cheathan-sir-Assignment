@@ -44,6 +44,33 @@ document.getElementById("random").innerText = Math.floor(Math.random() * 10)
 
 
 
+
+console.log("****fetch post****");
+const url='http://jsonplaceholder.typicode.com/posts'
+const  fetchPosts=()=>{
+    fetch(url).then((respose)=>{
+        // console.log('response',respose);
+        console.log( respose);
+        return respose.json()
+    }).then((data)=>{
+        console.log('respose.json() :',data);
+        return data
+    })
+    .then((hhh)=>{
+        console.log('>>',hhh[2]);
+        return hhh[2]
+    }).then((srinivas)=>{
+        console.log('title ',srinivas.title);
+    })
+    .catch(err=>{
+        console.log( err);
+        console.error(err.message);
+    })
+}
+fetchPosts()
+
+
+
 console.log("************  give me pattern like this  ************");
 // loop the pattern 
 function pattern() {
@@ -336,15 +363,17 @@ function getvalue() {
   // console.log(reobj);
   // let jobj = JSON.stringify(reobj)
   // console.log(jobj)
-
+// debugger
   const arr3 = [1, 2, 2, 3, 3, 3, 3, 4, 4] 
   let myObject=new Object();
   for (i=0;i<arr3.length;i++){
     if(arr3[i] !==arr3[i-1]){
       let values=arr3.filter((val,ind,arr)=> val ==arr3[i]).length;
       myObject[arr3[i]]=values;
+      // console.log( myObject); 
     }
   }
   console.log( myObject);
   let tojson=JSON.stringify(myObject)
   console.log( tojson);
+
