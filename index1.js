@@ -1,4 +1,4 @@
-
+console.log( "welcome to javascript");
 document.getElementById("welcm").innerText = "welcome to java script"
 
 const array = [3, 6, 2, 56, 32, 5, 89, 32, 101];
