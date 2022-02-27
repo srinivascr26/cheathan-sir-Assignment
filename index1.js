@@ -37,34 +37,35 @@ console.log("the second largest number of an array is", seconlarge);
 console.log("************ print random number using  function ************");
 // random number using function  
 function random() {
-  let ram = document.getElementById("random").innerText = Math.floor(Math.random() * 1 + 2);
+  let ram = document.getElementById("random").innerText = Math.floor(Math.random() * 10);
   console.log(ram);
 }
+// random(ram)
 document.getElementById("random").innerText = Math.floor(Math.random() * 10)
 
 
 
 
 console.log("****fetch post****");
-const url='http://jsonplaceholder.typicode.com/posts'
-const  fetchPosts=()=>{
-    fetch(url).then((respose)=>{
-        // console.log('response',respose);
-        console.log( respose);
-        return respose.json()
-    }).then((data)=>{
-        console.log('respose.json() :',data);
-        return data
+const url = 'http://jsonplaceholder.typicode.com/posts'
+const fetchPosts = () => {
+  fetch(url).then((respose) => {
+    // console.log('response',respose);
+    console.log(respose);
+    return respose.json()
+  }).then((data) => {
+    console.log('respose.json() :', data);
+    return data
+  })
+    .then((hhh) => {
+      console.log('>>', hhh[2]);
+      return hhh[2]
+    }).then((srinivas) => {
+      console.log('title ', srinivas.title);
     })
-    .then((hhh)=>{
-        console.log('>>',hhh[2]);
-        return hhh[2]
-    }).then((srinivas)=>{
-        console.log('title ',srinivas.title);
-    })
-    .catch(err=>{
-        console.log( err);
-        console.error(err.message);
+    .catch(err => {
+      console.log(err);
+      console.error(err.message);
     })
 }
 fetchPosts()
@@ -179,6 +180,7 @@ function print() {
 console.log("****generate id  randomly *****");
 //generate id by clicking 
 function gen() {
+  const ty = "TE"
   const jobs = ['DEV', 'TES', 'PRM', 'TCL']
   const job = Math.floor(Math.random() * jobs.length)
   let ran = Math.floor(Math.random() * 253)
@@ -189,7 +191,7 @@ function gen() {
   for (let i = 0; i < 3; i++) {
     nameValue += nameId[i]
   }
-  document.getElementById("para").innerText = nameValue.toUpperCase() + "" + jobs[job] + ran
+  document.getElementById("para").innerText = ty + "" + nameValue.toUpperCase() + "" + jobs[job] + ran
 
 }
 
@@ -338,10 +340,10 @@ for (var mykey in persons) {
 }
 
 
-console.log("****for of loop****"); 
-var myFruits=['apple','pine Apple','kashmir Apple','mango']
-for (var fruitsz of myFruits){
-    console.log(fruitsz);
+console.log("****for of loop****");
+var myFruits = ['apple', 'pine Apple', 'kashmir Apple', 'mango']
+for (var fruitsz of myFruits) {
+  console.log(fruitsz);
 }
 
 
@@ -358,22 +360,46 @@ function getvalue() {
 //       console.log(va); 
 //     }
 //   }) 
-  // const convObj = [1, 2, 2, 3, 3, 3, 3, 4, 4]
-  // let reobj = Object.assign({}, convObj)// Array is convert to object
-  // console.log(reobj);
-  // let jobj = JSON.stringify(reobj)
-  // console.log(jobj)
+// const convObj = [1, 2, 2, 3, 3, 3, 3, 4, 4]
+// let reobj = Object.assign({}, convObj)// Array is convert to object
+// console.log(reobj);
+// let jobj = JSON.stringify(reobj)
+// console.log(jobj)
 // debugger
-  const arr3 = [1, 2, 2, 3, 3, 3, 3, 4, 4] 
-  let myObject=new Object();
-  for (i=0;i<arr3.length;i++){
-    if(arr3[i] !==arr3[i-1]){
-      let values=arr3.filter((val,ind,arr)=> val ==arr3[i]).length;
-      myObject[arr3[i]]=values;
-      // console.log( myObject); 
-    }
-  }
-  console.log( myObject);
-  let tojson=JSON.stringify(myObject)
-  console.log( tojson);
 
+
+const arr3 = [1, 2, 2, 3, 5, 1, 5, 3, 3, 4, 4]
+let myObject = new Object();
+for (i = 0; i < arr3.length; i++) {
+  if (arr3[i] !== arr3[i - 1]) {
+    let values = arr3.filter((val, ind, arr) => val == arr3[i]).length;
+    myObject[arr3[i]] = values;
+    // console.log( values);
+    // console.log( myObject); 
+  }
+}
+
+console.log(myObject);
+let tojson = JSON.stringify(myObject)
+console.log(tojson);
+
+
+function toCheck() {
+  let value1 = parseInt(document.getElementById("val1").value)
+  let value2 = parseInt(document.getElementById("val2").value)
+  
+
+  if ( value2 > value1 ) { 
+    sub = value2 - value1
+    console.log("subs", sub);
+  } else {
+     
+      sum = value1+ value2
+      console.log( "sum",sum);
+    
+  }
+
+}
+ 
+
+ 
